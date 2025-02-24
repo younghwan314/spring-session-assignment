@@ -1,8 +1,6 @@
 package com.example.springsessionassignment.todo.controller;
 
-import com.example.springsessionassignment.todo.dto.TodoResponseDto;
-import com.example.springsessionassignment.todo.dto.TodoSaveRequestDto;
-import com.example.springsessionassignment.todo.dto.TodoUpdateRequestDto;
+import com.example.springsessionassignment.todo.dto.*;
 import com.example.springsessionassignment.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +15,7 @@ public class TodoController {
     private final TodoService todoService;
 
     @PostMapping("/todos")
-    public ResponseEntity<TodoSaveRequestDto> save(
+    public ResponseEntity<TodoSaveResponseDto> save(
             @SessionAttribute(name = Const.LOGIN_MEMBER) Long memberId,
             @RequestBody TodoSaveRequestDto dto
     ) {
@@ -37,7 +35,7 @@ public class TodoController {
     }
 
     @PutMapping("/todos/{todoId}")
-    public void update(
+    public ResponseEntity<TodoUpdateResponseDto> update(
             @SessionAttribute(name = Const.LOGIN_MEMBER) Long memberId,
             @PathVariable Long todoId,
             @RequestBody TodoUpdateRequestDto dto
