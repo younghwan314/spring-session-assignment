@@ -1,5 +1,6 @@
 package com.example.springsessionassignment.member.controller;
 
+import com.example.springsessionassignment.common.consts.Const;
 import com.example.springsessionassignment.member.dto.MemberResponseDto;
 import com.example.springsessionassignment.member.dto.MemberUpdateRequestDto;
 import com.example.springsessionassignment.member.service.MemberService;
